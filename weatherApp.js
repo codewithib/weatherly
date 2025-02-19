@@ -79,7 +79,7 @@ const getCurrentWeather = async (event) => {
 
 
         // Displaying info assigned to my variables to the page starts here
-        cityInfos.textContent = `${cityName}, ${state}, ${countryCode}`;
+        cityInfos.textContent = `${cityName}, ${state}`;
         const flagDisplay = document.createElement("img");
         cityInfos.appendChild(flagDisplay);
         flagDisplay.src = flagUrl;
