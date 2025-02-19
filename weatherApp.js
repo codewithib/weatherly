@@ -87,17 +87,19 @@ const getCurrentWeather = async (event) => {
         const flagDisplay = document.createElement("img");
         cityInfos.appendChild(flagDisplay);
         flagDisplay.src = flagUrl;
-        flagDisplay.classList.toggle("flag");
-        tempDisplay.textContent = `${temp}, °C`;
+        flagDisplay.classList.add("flag");
+        tempDisplay.textContent = `${temp}°C`;
         weatherConditionDisplay.textContent = weatherCondition;
         timeDisplay.textContent = timeString;
 
+        const existingIcon = iconDisplayWrapper.querySelector(".weather-icon");
+        if (existingIcon) {
+            existingIcon.remove();
+        }
+
         const weatherIconDisplay = document.createElement("img");
-
         weatherIconDisplay.src = weatherIconUrl;
-
-        weatherIconDisplay.classList.toggle("weather-icon");
-
+        weatherIconDisplay.classList.add("weather-icon");
         iconDisplayWrapper.appendChild(weatherIconDisplay);
 
         
@@ -120,34 +122,47 @@ const getCurrentWeather = async (event) => {
         const forecastData = await forecastResponse.json();
 
         const dailyForecasts = forecastData.list.filter((item) => item.dt_txt.includes("12:00:00"));
-        fiveDaysDisplay.innerHTML = "";
+        fiveDaysDisplay.replaceChildren();
 
         for (let day of dailyForecasts) {
             // assigning all the weather info I need from the api to a variable starts here
             const timeStamp = day.dt;
             const date = new Date(timeStamp * 1000);
             const timeString = date.toDateString();
-            const temp = day.main.temp;
 
-            const weatherIconCode = day.weather[0].icon;
-            const weatherIconUrl = `https://openweathermap.org/img/wn/${weatherIconCode}@2x.png`;
+            const weatherIconCodeFive = day.weather[0].icon;
+            const weatherIconUrlFive = `https://openweathermap.org/img/wn/${weatherIconCodeFive}@2x.png`;
 
             const weatherCondition = day.weather[0].description;
 
+            const temp = day.main.temp;
+
             // assigning all the weather info I need from the api to a variable ends here
+
+            // Displaying info assigned to my variables to the page ends here
 
             const foreCastItem = document.createElement("div");
 
             const time = document.createElement("p");// Creating p tag to hold my date
             time.textContent = timeString; // assigning my p tag content
-
             foreCastItem.appendChild(time);
 
-            const weatherIconDisplay = document.createElement("img");
-            weatherIconDisplay.src = weatherIconUrl;
-            weatherIconDisplay.classList.toggle("five-days-icon");
+            const weatherIconDisplayFive = document.createElement("img"); // Creating img tag to hold my weather icon
+            weatherIconDisplayFive.src = weatherIconUrlFive;
+            weatherIconDisplayFive.classList.toggle("five-days-icon");
 
-            foreCastItem.appendChild(weatherIconDisplay);
+            foreCastItem.appendChild(weatherIconDisplayFive);
+
+            const weatherConditionDisplay = document.createElement("p"); // Creating p tag to hold my weather condition
+            weatherConditionDisplay.textContent = weatherCondition;
+            foreCastItem.appendChild(weatherConditionDisplay);
+
+            const tempDisplay = document.createElement("p"); // Creating p tag to hold my weather temp
+            tempDisplay.textContent = `${temp}°C`;
+            foreCastItem.appendChild(tempDisplay);
+
+
+
 
 
             
