@@ -1,10 +1,33 @@
 /* Importing font */
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
 
+/* Adding colors to my variable */
+:root {
+    --background: #FF9D54;
+    --font-color: #344A53;
+    --font: 'Lexend Deca', sans-serif;
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+img, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+html, body {
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background: var(--background);
 }
 
 .container {
@@ -20,12 +43,60 @@ img {
     height: auto;
 }
 
-/* button {
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
 
-} */
+.logo-text {
+    color: var(--font-color);
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+.greeting {
+    color: var(--font-color);
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 0.84rem;
+    font-weight: 900;
+}
 
 form {
     display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+form .city-text {
+    padding: 0.7rem 0.8rem;
+    border-radius: 0rem 0.625rem;
+    background: #fff;
+    border: none;
+    width: 36.6875rem;
+    border: 1.5px solid rgba(221, 221, 221, 0.5);
+    color: var(--font-color);
+    font-weight: 800;
+    position: relative;    
+}
+
+form .search {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: absolute;
+    margin-left: 25rem;
+    border-radius: 0rem 0.625rem;
+}
+
+form .search:hover {
+    background: #000;
+    color: #fff;
+    transform: scale(1.1);
 }
 
 .weather-details-card {
@@ -33,7 +104,6 @@ form {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
-    width: 25rem;
     gap: 0.9rem;
 
     .item {
@@ -45,6 +115,10 @@ form {
     .center-weather-icon {
         /* align-self: center; */
         flex: 2.5;
+
+        .weather-icon {
+            filter: drop-shadow(-5px 2px 39px #000000);
+        }
 
   
     }
