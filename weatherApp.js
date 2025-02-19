@@ -12,13 +12,17 @@ const weatherConditionDisplay = document.querySelector(".weather-condition");
 
 const timeDisplay = document.querySelector(".time");
 
-const weatherIconDisplay = document.querySelector(".weather-icon");
+// const weatherIconDisplay = document.querySelector(".weather-icon");
 
 const humidityDisplay = document.querySelector(".number-humidity");
 
 const pressureDisplay = document.querySelector(".number-pressure");
 
 const visibilityDisplay = document.querySelector(".number-visibility");
+
+const fiveDaysDisplay = document.querySelector(".five-days-container");
+
+const iconDisplayWrapper = document.querySelector(".center-weather-icon")
 
 // Writing my async functions to fetch data and making the promise return async
 
@@ -87,7 +91,16 @@ const getCurrentWeather = async (event) => {
         tempDisplay.textContent = `${temp}, °C`;
         weatherConditionDisplay.textContent = weatherCondition;
         timeDisplay.textContent = timeString;
+
+        const weatherIconDisplay = document.createElement("img");
+
         weatherIconDisplay.src = weatherIconUrl;
+
+        weatherIconDisplay.classList.toggle("weather-icon");
+
+        iconDisplayWrapper.appendChild(weatherIconDisplay);
+
+        
 
         humidityDisplay.textContent = `${humidity}%`;
         pressureDisplay.textContent = `${pressure}hPa`;
@@ -95,14 +108,63 @@ const getCurrentWeather = async (event) => {
 
         // Displaying info assigned to my variables to the page ends here
 
+        // Fetching forecast data for five days weather
+
+        const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+        const forecastResponse = await fetch(forecastUrl);
+
+        if (!forecastResponse.ok) {
+            throw new Error ("Unable to get forecast details");
+        }
+
+        const forecastData = await forecastResponse.json();
+
+        const dailyForecasts = forecastData.list.filter((item) => item.dt_txt.includes("12:00:00"));
+        fiveDaysDisplay.innerHTML = "";
+
+        for (let day of dailyForecasts) {
+            // assigning all the weather info I need from the api to a variable starts here
+            const timeStamp = day.dt;
+            const date = new Date(timeStamp * 1000);
+            const timeString = date.toDateString();
+            const temp = day.main.temp;
+
+            const weatherIconCode = day.weather[0].icon;
+            const weatherIconUrl = `https://openweathermap.org/img/wn/${weatherIconCode}@2x.png`;
+
+            const weatherCondition = day.weather[0].description;
+
+            // assigning all the weather info I need from the api to a variable ends here
+
+            const foreCastItem = document.createElement("div");
+
+            const time = document.createElement("p");// Creating p tag to hold my date
+            time.textContent = timeString; // assigning my p tag content
+
+            foreCastItem.appendChild(time);
+
+            const weatherIconDisplay = document.createElement("img");
+            weatherIconDisplay.src = weatherIconUrl;
+            weatherIconDisplay.classList.toggle("five-days-icon");
+
+            foreCastItem.appendChild(weatherIconDisplay);
 
 
+            
 
+            // foreCastItem.innerHTML = `<p>${timeString}</p>`;
+
+            
+
+            fiveDaysDisplay.appendChild(foreCastItem);
+        }
 
 
     } catch (error) {
         alert(error)
     }
+
+    cityInput.value = "";
 } 
 
 
