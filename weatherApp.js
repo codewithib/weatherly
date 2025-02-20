@@ -22,16 +22,25 @@ const visibilityDisplay = document.querySelector(".number-visibility");
 
 const fiveDaysDisplay = document.querySelector(".five-days-container");
 
-const iconDisplayWrapper = document.querySelector(".center-weather-icon")
+const iconDisplayWrapper = document.querySelector(".center-weather-icon");
+
+
 
 // Writing my async functions to fetch data and making the promise return async
 
-const getCurrentWeather = async (event) => {
+const getCurrentWeather = async (event, defaultCity = null) => {
 
-    event.preventDefault();
-    const city = cityInput.value.trim();
+   if (event) event.preventDefault();
+    const city = defaultCity || cityInput.value.trim();
 
     // Writing the resolve state of the function
+
+  
+
+    if (!city) {
+        alert("please enter a city name");
+        return;
+    }
 
     try {
         
@@ -43,6 +52,8 @@ const getCurrentWeather = async (event) => {
         if (!response.ok) {
             throw new Error("City not found or spelling incorrect");
         }
+
+    
 
         const weatherData = await response.json(); // converting the response from the API to json format
 
@@ -175,13 +186,27 @@ const getCurrentWeather = async (event) => {
         }
 
 
-    } catch (error) {
+    } 
+    catch (error) {
         alert(error)
     }
 
     cityInput.value = "";
+
 } 
 
 
+// Loading default city
+
+window.onload = () => {
+    getCurrentWeather(null, "London");
+}
+
 searchBtn.addEventListener("click", getCurrentWeather);
+
+cityInput.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+        getCurrentWeather(event);
+    }
+});
 
