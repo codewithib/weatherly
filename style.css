@@ -129,7 +129,6 @@ form .search:hover {
 }
 
 .weather-details-card .center-weather-icon .weather-icon {
-    filter: drop-shadow(-5px 2px 39px rgba(185, 253, 80, 0.3));
     margin-top: -2rem;
     width: 10rem;
     height: auto;
