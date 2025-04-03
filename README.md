@@ -50,11 +50,8 @@ Weatherly uses the OpenWeather API. To use this project: 🌩️📜💾
    ```
 
 ## Future Improvements 🔄💻📚
-
-- **Dark Mode Support** 🌑🌓🌞
 - **User Location Detection** 📍🌍🔍
 - **Hourly Weather Forecast** 🕒📊☁️
-- **More Styling Enhancements** 🎨🖌️✨
 
 ## Contributing 💪👨‍💻📚
 
