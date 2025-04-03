@@ -81,7 +81,7 @@ const getCurrentWeather = async (event, defaultCity = null) => {
 
         // Fecthing the geeocoding api to get the states of the city enter by the user
 
-        const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}`;
+        const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}`;
         const geoResponse = await fetch(geoUrl);
 
         if (!geoResponse.ok) {
