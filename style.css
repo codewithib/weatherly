@@ -1,11 +1,14 @@
 /* Importing font */
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 
 /* Adding colors to my variable */
 :root {
-    --background: #FF9D54;
-    --font-color: #344A53;
-    --font: 'Lexend Deca', sans-serif;
+  --font-primary: -apple-system, BlinkMacSystemFont, "SF Compact", "Helvetica Neue", Arial, sans-serif;
+  --font-secondary: "Manrope", sans-serif;
+  --highlight-color: #B9FD50;
+  --bg-color: #111204;
+  --font-color: #fff;
+  --btn-text-color: #111204;
 }
 
 * {
@@ -27,7 +30,9 @@ html, body {
 }
 
 body {
-    background: var(--background);
+    font-family: var(--font-primary), var(--font-secondary);
+    background: var(--bg-color);
+    color: var(--font-color);
 }
 
 .container {
@@ -75,9 +80,9 @@ form {
 form .city-text {
     padding: 0.7rem 0.8rem;
     border-radius: 0rem 0.625rem;
-    background: #fff;
-    border: 1.5px solid rgba(221, 221, 221, 0.5);
-    color: var(--font-color);
+    background: none;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    color: #000;
     font-weight: 800;
     width: 36.6875rem;
 }
@@ -103,7 +108,7 @@ form .search:hover {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
-    background: #FFAC88;
+    background: var(--card-bg);
     margin-bottom: 2rem;
     /* align-items: flex-start; */
 }
