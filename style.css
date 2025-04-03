@@ -9,6 +9,7 @@
   --bg-color: #111204;
   --font-color: #fff;
   --btn-text-color: #111204;
+  --card-bg: #222;
 }
 
 * {
@@ -53,7 +54,7 @@ img {
     align-items: center;
     gap: 0.6rem;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .logo-text {
@@ -65,9 +66,9 @@ img {
 .greeting {
     color: var(--font-color);
     text-align: center;
-    margin-bottom: 1rem;
-    font-size: 0.7rem;
-    font-weight: 900;
+    margin-bottom: 1.6rem;
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 
 form {
@@ -84,7 +85,8 @@ form .city-text {
     border: 1.5px solid rgba(255, 255, 255, 0.4);
     color: var(--font-color);
     font-weight: 800;
-    width: 36.6875rem;
+    width: 100%;
+    font-size: 1.1rem;
 }
 
 form .search {
@@ -98,13 +100,13 @@ form .search {
 }
 
 form .search:hover {
-    background: #000;
+    background: var(--highlight-color);
     color: #fff;
     transform: scale(1.1);
 }
 
 .weather-details-card {
-    border-radius: 1.5rem;
+    border-radius: 1rem 1rem 0rem 0rem;
     display: flex;
     justify-content: space-between;
     padding: 1rem;
@@ -126,7 +128,7 @@ form .search:hover {
 }
 
 .weather-details-card .center-weather-icon .weather-icon {
-    filter: drop-shadow(-5px 2px 39px #000000);
+    filter: drop-shadow(-5px 2px 39px rgba(185, 253, 80, 0.6));
     margin-top: -2rem;
     width: 10rem;
     height: auto;
@@ -154,6 +156,7 @@ form .search:hover {
     flex-direction: column;
     color: var(--font-color);
     font-size: 0.9rem;
+    font-weight: 600;
     /* gap: 1rem; */
     justify-content: space-between;
 
@@ -189,25 +192,26 @@ form .search:hover {
     flex-direction: column;
     align-items: center;
     gap: 0.2rem;
-}
-
-.side-weather-wrapper .side .number-humidity, .number-pressure, .number-visibility {
     font-weight: 600;
 }
 
+.side-weather-wrapper .side .number-humidity, .number-pressure, .number-visibility {
+    color: var(--highlight-color);
+}
+
 .side-weather-wrapper .side .txt {
-    color: rgba(52, 74, 83, 0.75);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .five-heading {
     color: var(--font-color);
     margin-bottom: 1rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 900;
 }
 
 .five-days-container div .five-days-icon {
-    filter: drop-shadow(-5px 2px 39px #000000);
+    filter: drop-shadow(-5px 2px 39px rgba(185, 253, 80, 0.6));
     width: 2rem;
 }
 
@@ -224,11 +228,12 @@ form .search:hover {
     align-items: center;
     justify-content: space-between;
     padding: 0.7rem;
-    color: #344A53;
+    color: var(--font-color);
     font-size: 0.9rem;
+    font-weight: 400;
     border-radius: 0.5rem;
-    background: #FFAC88;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: var(--card-bg);
+    box-shadow: 0px 4px 4px 0px rgba(185, 253, 80, 0.3);
     animation: rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 
 }
@@ -245,10 +250,37 @@ form .search:hover {
       }
 }
 
-.footer-txt-container {
-    display: inline-flex;
-    align-items: center;
+/* Styling of footer starts here */
+.footerSection {
+    background: #222;
+  }
+  
+  .footerContainer {
+    display: flex;
+    flex-direction: column;
     gap: 0.8rem;
-    font-size: 0.7rem;
-    color: var(--font-color);
-}
+  }
+  
+  .footerContainer .logo {
+    margin-bottom: 1rem;
+  }
+  
+  .footer-txt-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .footer-txt-container .footer-txt {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+  }
+  
+  .footer-txt-container svg {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  /* Styling of footer ends here */
