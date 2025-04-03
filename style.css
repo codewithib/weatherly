@@ -90,7 +90,7 @@ form .city-text {
 }
 
 form .search {
-    background: var(--highlight-color);
+    background: #fff;
     border: 1.5px solid rgba(255, 255, 255, 0.4);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -101,17 +101,18 @@ form .search {
 
 form .search:hover {
     background: var(--highlight-color);
-    color: #fff;
+    color: #000;
     transform: scale(1.1);
 }
 
 .weather-details-card {
-    border-radius: 1rem 1rem 0rem 0rem;
+    border-radius: 0.5rem;
     display: flex;
     justify-content: space-between;
     padding: 1rem;
     background: var(--card-bg);
     margin-bottom: 2rem;
+    box-shadow: 0px 4px 4px 0px rgba(185, 253, 80, 0.3);
     /* align-items: flex-start; */
 }
 
@@ -128,7 +129,7 @@ form .search:hover {
 }
 
 .weather-details-card .center-weather-icon .weather-icon {
-    filter: drop-shadow(-5px 2px 39px rgba(185, 253, 80, 0.6));
+    filter: drop-shadow(-5px 2px 39px rgba(185, 253, 80, 0.3));
     margin-top: -2rem;
     width: 10rem;
     height: auto;
@@ -196,7 +197,8 @@ form .search:hover {
 }
 
 .side-weather-wrapper .side .number-humidity, .number-pressure, .number-visibility {
-    color: var(--highlight-color);
+    color: var(--font-color);
+    font-weight: 900;
 }
 
 .side-weather-wrapper .side .txt {
