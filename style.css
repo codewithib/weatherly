@@ -289,6 +289,12 @@ form .search:hover {
 
 /* Media query starts here */
 
+@media (min-width: 478px) {
+    .container {
+        max-width: 478px;
+    }
+}
+
 @media (min-width: 768px) {
     .container {
         max-width: 768px;
@@ -338,4 +344,5 @@ form .search:hover {
         height: 1rem;
       }
 }
+
 /* Media query ends here */
