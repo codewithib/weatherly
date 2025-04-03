@@ -112,7 +112,7 @@ form .search:hover {
     padding: 1rem;
     background: var(--card-bg);
     margin-bottom: 2rem;
-    box-shadow: 0px 4px 4px 0px rgba(185, 253, 80, 0.3);
+    box-shadow: 0px 4px 4px 0px rgba(185, 253, 80, 0.2);
     /* align-items: flex-start; */
 }
 
@@ -235,7 +235,7 @@ form .search:hover {
     font-weight: 400;
     border-radius: 0.5rem;
     background: var(--card-bg);
-    box-shadow: 0px 4px 4px 0px rgba(185, 253, 80, 0.3);
+    box-shadow: 0px 4px 4px 0px rgba(185, 253, 80, 0.2);
     animation: rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 
 }
@@ -286,3 +286,12 @@ form .search:hover {
   }
   
   /* Styling of footer ends here */
+
+/* Media query starts here */
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+/* Media query ends here */
